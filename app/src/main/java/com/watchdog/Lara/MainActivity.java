@@ -1,6 +1,7 @@
 package com.watchdog.Lara;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,11 +10,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-//For Speech Recognizion
+//For Speech Recognition
 import android.speech.RecognizerIntent;
 import android.widget.VideoView;
 
@@ -47,7 +49,8 @@ import java.net.UnknownHostException;
 
 public class MainActivity extends AppCompatActivity
 {
-	private WebSocketClient mWebSocketClient;
+	Server server;
+	TextView infoip, msg;
 	private TextView txvResult;
 	public InetAddress hostname;
 
@@ -56,47 +59,19 @@ public class MainActivity extends AppCompatActivity
 		{
 			super.onCreate(savedInstanceState);
 			setContentView(R.layout.activity_main);
-			connectWebSocket();
 			txvResult = (TextView) findViewById(R.id.txvResult);
-			Thread mythread = new Thread(new ws_server());
-			mythread.start();
-		}
-
-	class ws_server implements Runnable
-		{
-			Socket s;
-			ServerSocket ss;
-			InputStreamReader isr;
-			BufferedReader buff;
-			Handler h = new Handler();
-			String message;
-			@Override
-			public void run()
-				{
-					try
-						{
-							ss = new ServerSocket(975);
-							while(true)
-								{
-									s = ss.accept();
-									isr = new InputStreamReader(s.getInputStream());
-									buff = new BufferedReader(isr);
-									message = buff.readLine();
-									h.post(new Runnable()
-										{
-											@Override
-											public void run()
-												{
-													Toast.makeText(getApplicationContext(),message,Toast.LENGTH_SHORT).show();
-												}
-										});
-								}
-						}
-					catch(IOException e)
-						{
-							e.printStackTrace();
-						}
+			infoip = (TextView) findViewById(R.id.infoip);
+			server = new Server(MainActivity.this);
+			infoip.setText(server.getIpAddress()+":"+server.getPort());
+			infoip.setTextColor(Color.WHITE);
+			final Button button = (Button) findViewById(R.id.button);
+			button.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View view) {
+					server.stop();
+					Toast.makeText(MainActivity.this, "Alarm Stopped", Toast.LENGTH_LONG).show();
 				}
+			});
 		}
 
 	public void getSpeechInput(View view)
@@ -132,64 +107,11 @@ public class MainActivity extends AppCompatActivity
 					break;
 				}
 		}
-	private void connectWebSocket()
-		{
-			URI uri;
-			try
-				{
-					uri = new URI("ws://" + hostname + ":9000/");
-				}
-			catch (URISyntaxException e)
-				{
-					e.printStackTrace();
-					return;
-				}
-
-			mWebSocketClient = new WebSocketClient(uri)
-				{
-					@Override
-					public void onOpen(ServerHandshake serverHandshake)
-						{
-							Log.i("Websocket", "Opened");
-							mWebSocketClient.send("Hello from " + Build.MANUFACTURER + " " + Build.MODEL);
-						}
-
-					@Override
-					public void onMessage(String s)
-						{
-							final String message = s;
-							runOnUiThread(new Runnable()
-								{
-									@Override
-									public void run()
-										{
-											/*TextView textView = (TextView)findViewById(R.id.messages);
-											textView.setText(textView.getText() + "\n" + message);*/
-										}
-								});
-						}
-
-					@Override
-					public void onClose(int i, String s, boolean b)
-						{
-							Log.i("Websocket", "Closed " + s);
-						}
-
-					@Override
-					public void onError(Exception e)
-						{
-							Log.i("Websocket", "Error " + e.getMessage());
-						}
-				};
-			mWebSocketClient.connect();
-		}
 
 	public void sendMessage(String message)
 		{
-//			EditText editText = (EditText)findViewById(R.id.message);
-			mWebSocketClient.send(message);
-			//editText.setText("");
-		}
+
+	}
 
 
 	public static void Save(File file, String[] data)
