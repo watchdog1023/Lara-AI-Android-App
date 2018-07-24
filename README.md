@@ -2,6 +2,6 @@
 
 This is the Companion App for Lara-AI
 
-# Lara Repo @:
+## Lara Repo @:
 
 https://github.com/watchdog1023/Lara-AI
