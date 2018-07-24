@@ -1,7 +1,3 @@
-# Lara-AI-Android-App
-
-This is the Companion App for Lara-AI
-
-## Lara Repo @:
-
-https://github.com/watchdog1023/Lara-AI
+# SpeechToText
+Learn how to convert Speech to Text or Voice to Text in Android. 
+Get the Tutorial here : https://youtu.be/0bLwXw5aFOs 
