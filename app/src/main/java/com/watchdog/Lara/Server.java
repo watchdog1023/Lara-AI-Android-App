@@ -23,11 +23,16 @@ public class Server {
 	String message = "";
 	static final int socketServerPORT = 8080;
 	MediaPlayer mp;
-
+	private static final boolean debug = true;
 
 	public Server(MainActivity activity)
 	{
-		mp = MediaPlayer.create( activity, R.raw.a1);
+		if (debug) {
+			mp = MediaPlayer.create(activity, R.raw.a2);
+		}
+		else {
+			mp = MediaPlayer.create(activity, R.raw.alarm_sound);
+		}
 		this.activity = activity;
 		Thread socketServerThread = new Thread(new SocketServerThread());
 		socketServerThread.start();
