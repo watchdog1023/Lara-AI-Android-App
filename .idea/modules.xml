@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Lara.iml" filepath="$PROJECT_DIR$/Lara.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lara-AI-Android-App.iml" filepath="$PROJECT_DIR$/Lara-AI-Android-App.iml" />
       <module fileurl="file://$PROJECT_DIR$/OpenCV341/OpenCV341.iml" filepath="$PROJECT_DIR$/OpenCV341/OpenCV341.iml" />
+      <module fileurl="file://C:\Users\Cameron\Desktop\code projects\Android Studio Projects\Lara-AI-Android-App\OpenCV341\OpenCV341.iml" filepath="C:\Users\Cameron\Desktop\code projects\Android Studio Projects\Lara-AI-Android-App\OpenCV341\OpenCV341.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
