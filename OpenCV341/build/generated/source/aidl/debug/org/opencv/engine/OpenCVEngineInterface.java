@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: C:\\Users\\Gamer\\Desktop\\code projects\\Android Studio Projects\\Lara\\OpenCV341\\src\\main\\aidl\\org\\opencv\\engine\\OpenCVEngineInterface.aidl
+ * Original file: C:\\Users\\Cameron\\Desktop\\code projects\\Android Studio Projects\\Lara-AI-Android-App\\OpenCV341\\src\\main\\aidl\\org\\opencv\\engine\\OpenCVEngineInterface.aidl
  */
 package org.opencv.engine;
 /**

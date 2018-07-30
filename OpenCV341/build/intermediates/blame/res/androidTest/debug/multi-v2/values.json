@@ -1,6 +1,10 @@
 {
     "logs": [
         {
+            "outputFile": "C:\\Users\\Cameron\\Desktop\\code projects\\Android Studio Projects\\Lara-AI-Android-App\\OpenCV341\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+            "map": []
+        },
+        {
             "outputFile": "C:\\Users\\Gamer\\Desktop\\code projects\\Android Studio Projects\\Lara\\OpenCV341\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
             "map": []
         },
