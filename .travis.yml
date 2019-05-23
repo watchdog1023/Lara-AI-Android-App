@@ -13,8 +13,8 @@ android:
   
   
 script: 
-  - sudo apt update
-  - sudo apt install coreutils
+  - sudo apt-get update
+  - sudo apt-get install coreutils
   - sudo chmod -v 777 gradlew
-  - sudo apt install gradle
+  - sudo apt-get install gradle
   - gradle build
