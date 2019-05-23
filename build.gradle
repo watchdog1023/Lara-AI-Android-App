@@ -22,7 +22,10 @@ allprojects {
         maven {
             url 'https://clojars.org/repo'
         }
-        google()
+        //google()
+        maven {
+            url "https://maven.google.com"
+}
     }
 }
 
