@@ -1,6 +1,6 @@
 language: android
 jdk: oraclejdk8
-#sudo: false
+sudo: True
 
 android:
   components:
@@ -11,4 +11,6 @@ android:
   - extra-android-m2repository
   
   
-script: ./gradlew connectedAndroidTest
+script: 
+  - chomd -v 777 gradlew
+  - ./gradlew connectedAndroidTest
