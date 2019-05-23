@@ -15,4 +15,4 @@ script:
   - sudo apt update
   - sudo apt install coreutils
   - sudo chmod -v 777 gradlew
-  - ./gradlew build
+  - gradle build
