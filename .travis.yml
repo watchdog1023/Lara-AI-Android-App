@@ -12,5 +12,7 @@ android:
   
   
 script: 
+  - apt update
+  - apt install coreutils
   - chomd -v 777 gradlew
   - ./gradlew connectedAndroidTest
