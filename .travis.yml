@@ -28,4 +28,4 @@ script:
   - sudo apt-get update
   - chmod +x gradlew
   - ./gradlew dependencies || true
-  - ./gradlew clean build connectedCheck -PdisablePreDex --stacktrace
+  - ./gradlew build
