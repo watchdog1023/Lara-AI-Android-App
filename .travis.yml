@@ -3,20 +3,29 @@ jdk: oraclejdk8
 sudo: True
 dist: xenial
 
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.android/build-cache
+
 android:
   components:
-  - platform-tools
-  - tools
-  - build-tools-26.0.1
-  - android-19
-  - extra-android-m2repository
-  
+    - platform-tools
+    - tools
+    - build-tools-26.0.1
+    - android-19
+    - extra-android-m2repository
+  licenses:
+    - 'android-sdk-preview-license-52d11cd2'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
   
 script: 
   - sudo apt-get update
-  - sudo apt-get install coreutils
-  - sudo chmod -v 777 gradlew
-  - sudo apt-get install gradle
-  - pwd
-  - ./gradlew assemble
-  - gradle assemble
+  - chmod +x gradlew
+  - ./gradlew dependencies || true
+  - ./gradlew clean build connectedCheck -PdisablePreDex --stacktrace
