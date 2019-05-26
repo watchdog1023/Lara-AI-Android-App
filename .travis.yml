@@ -26,6 +26,7 @@ android:
   
 script: 
   - sudo apt-get update
-  - chmod -v +x gradlew
-  - ./gradlew -v
-  - ./gradlew build
+  - gradle wrapper --gradle-version=5.1.1 --distribution-type=all
+  - gradle wrapper
+  - gradle -v
+  - gradle build
