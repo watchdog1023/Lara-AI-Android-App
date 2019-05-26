@@ -26,4 +26,5 @@ android:
   
 script: 
   - sudo apt-get update
-  - gradle build
+  - chmod -v +x gradlew
+  - ./gradlew build
