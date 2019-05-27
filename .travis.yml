@@ -34,5 +34,5 @@ before_script:
 
 script: 
   - gradle -v
-  - ls -a $HOME
+  - ls -a $HOME/build
   - gradle build
