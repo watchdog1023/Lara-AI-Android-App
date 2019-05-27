@@ -34,5 +34,5 @@ before_script:
   - export PATH=${GRADLE_HOME}/bin:${PATH}
 
 script: 
-  - gradle build
+  - gradle --stacktrace  build
   
