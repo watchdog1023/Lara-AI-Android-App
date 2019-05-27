@@ -24,9 +24,16 @@ android:
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
   
-script: 
+
+before_script:
   - sudo apt-get update
-  - gradle wrapper --gradle-version=5.1.1 --distribution-type=all
-  - gradle wrapper
+  - sudo apt update
+  - sudo apt install openjdk-8-jdk
+  - sudo wget https://services.gradle.org/distributions/gradle-5.2.1-bin.zip -P /tmp
+  - sudo unzip -d /opt/gradle /tmp/gradle-*.zip
+  - export GRADLE_HOME=/opt/gradle/gradle-5.2.1
+  - export PATH=${GRADLE_HOME}/bin:${PATH}
+
+script: 
   - gradle -v
   - gradle build
