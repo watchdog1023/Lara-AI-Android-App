@@ -34,5 +34,5 @@ before_script:
 
 script: 
   - gradle -v
-  - ls -a $HOME/build
+  - ls -a $HOME/build/watchdog1023/
   - gradle build
