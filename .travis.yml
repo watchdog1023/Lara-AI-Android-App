@@ -34,7 +34,5 @@ before_script:
   - export PATH=${GRADLE_HOME}/bin:${PATH}
 
 script: 
-  - gradle -v
-  - ls -a $HOME/.android/*
   - gradle build
   
