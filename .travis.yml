@@ -34,6 +34,6 @@ before_script:
 
 script: 
   - gradle -v
-  - ls -a .android/*
+  - ls -a ../.android/*
   - gradle build
   
