@@ -31,18 +31,9 @@ before_script:
   - sudo unzip -d /opt/gradle /tmp/gradle-*.zip
   - export GRADLE_HOME=/opt/gradle/gradle-5.2.1
   - export PATH=${GRADLE_HOME}/bin:${PATH}
-  - cd $HOME
-  - wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip -O $HOME/android-sdk.tgz
-  - mkdir android
-  - unzip android-sdk.tgz -d android/sdk
-  - export PATH=$PATH:$HOME/android/sdk/tools:$HOME/android/sdk/tools/bin
-  - cd build/watchdog1023/Lara-AI-Android-App 
-  - echo y | sdkmanager 'ndk-bundle'
-  - echo y | sdkmanager 'cmake;3.6.3155560'
-  - export ANDROID_HOME=$HOME/android/sdk
-  - export ANDROID_NDK_HOME=$HOME/android/sdk/ndk-bundle
 
 script: 
   - gradle -v
+  - ls -a .android/*
   - gradle build
   
