@@ -36,4 +36,6 @@ before_script:
 script: 
   - gradle -v
   - gradle --stacktrace  build
+  - chmod -v 777 gradlew
+  - ./gradlew :app build
   
